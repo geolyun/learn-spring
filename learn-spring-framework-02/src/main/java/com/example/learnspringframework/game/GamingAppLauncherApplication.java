@@ -1,15 +1,9 @@
-package com.example.learnspringframework;
+package com.example.learnspringframework.game;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import com.example.learnspringframework.game.GameRunner;
-import com.example.learnspringframework.game.GamingConsole;
-import com.example.learnspringframework.game.MarioGame;
-import com.example.learnspringframework.game.PacmanGame;
-import com.example.learnspringframework.game.SuperContraGame;
 
 @Configuration
 @ComponentScan("com.example.learnspringframework.game")
