@@ -189,3 +189,38 @@ Spring Boot는 Spring Project이다. 목표는 프로덕션 환경에 사용 가
 JDBC와 Spring JDBC의 차이는 Spring JDBC로는 Java 코드를 훨씬 더 적게 써야한다.
 
 
+8/18<br/>
+
+Spring Data JPA<br/>
+
+JPA를 더 쉽게 만들어준다.<br/>
+EntityManager도 신경 쓸 필요가 없게 만들어준다.<br/>
+
+
+Hibernate vs JPA<br/>
+
+JPA는 기술 명세를 정의한다. 그것은 API이다.<br/>
+엔티티가 무엇인지 정의하는 방식을 정의한다.<br/>
+JPA를 이용하면 엔티티 정의, 속성 매핑 그리고 EntityManager를 활용하는 것까지 가능해진다.<br/>
+
+Hibernate는 JPA에서 매우 인기 있는 구현체이다. 코드에서 Hibernate 어노테이션을 직접 사용하지 않는 이유는 Hibernate로만 한정해서 쓰고 싶지 않기 때문이다.<br/>
+
+
+Spring MVC Controller<br/>
+
+@Controller은 주로 사용자의 요청을 처리하고 난 후 정해진 뷰 객체를 넘겨주는 역할을 합니다.<br/>
+
+@ResponseBody는 자바 객체를 json 기반의 HTTP Body로 변환, 서버 -> 클라이언트 응답<br/>
+
+
+Dispatcher Servlet<br/>
+
+A: HTTP 요청을 받는다.<br/>
+
+B: HTTP 요청을 처리한다.<br/>
+B1: 맨 먼저 적절한 컨트롤러 메서드를 식별해야 한다.<br/>
+B2: 적절한 컨트롤러 메서드를 식별했으면 그 컨트롤러 메서드를 실행하게 된다. 그리고 컨트롤러 메서드는 모델과 뷰 이름을 리턴하게 된다.<br/>
+B3: 렌더링할 적절한 뷰를 식별해야 한다. 그럼 dispatcher servlet은 view resolver과 대화하고 정확한 뷰 이름을 받게 된다.<br/>
+B4: 그리고 뷰를 렌더링하게 된다.<br/>
+
+C: 그 다음 HTTP 응답을 리턴함.<br/>
