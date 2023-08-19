@@ -22,7 +22,7 @@ IOC Container에는 두 가지가 있다.<br/>
 8/6
 
 
-POJO vs Java Bean vs Spring Bean<br/>
+- POJO vs Java Bean vs Spring Bean<br/>
 
 Java Bean은 3가지 제약을 준수하는 클래스(public 기본 생성자, no-arg 생성자, 게터와 세터 메서드, Java Serializable을 구현)<br/>
 
@@ -85,7 +85,7 @@ Spring Bean 스코프에는 싱글톤, 프로토타입 두 가지가 있다.<br/
 위의 4개는 web-aware ApplicationContext를 사용하는 경우에만 사용할 수 있다.<br/>
 
 
-Prototype vs Singleton Bean Scope<br/>
+- Prototype vs Singleton Bean Scope<br/>
 프로토타입에 생성되는 인스턴스는 Spring IoC 컨테이너 하나당 여러 개가 될 수 있다. 프로토타입에서는 Bean을 참조할 때마다 새로운 Bean 인스턴스가 생긴다.<br/>
 싱글톤의 경우 Spring IoC 컨테이너 하나당 인스턴스는 하나이다. 싱글톤에서는 같은 Bean 인스턴스를 다시 사용한다. 거의 싱글톤이 사용됨<br/>
 
@@ -105,7 +105,7 @@ Prototype vs Singleton Bean Scope<br/>
 8/10
 
 
-Jakarta CDI<br/>
+- Jakarta CDI<br/>
 CDI는 규격이고 인터페이스이다.<br/>
 CDI의 중요한 어노테이션에는 Inject(Autowired in Spring), Named(Component in Spring), Qualifier, Scope, Singleton이 있다.<br/>
 
@@ -113,7 +113,7 @@ CDI의 중요한 어노테이션에는 Inject(Autowired in Spring), Named(Compon
 8/12
 
 
-Spring 스테레오타입 어노테이션<br/>
+- Spring 스테레오타입 어노테이션<br/>
 
 @Component : 모든 Spring 스테레오타입 어노테이션의 기초이다.<br/>
 [ @Component의 세분화<br/>
@@ -121,7 +121,7 @@ Spring 스테레오타입 어노테이션<br/>
 * @Controller는 웹 애플리케이션과 REST API에서 컨트롤러를 정의하는 데 사용된다.<br/>
 * @Repository는 Bean이 데이터베이스와 통신하는 경우, 데이터를 저장하거나 검색하거나 조작하는 경우에 @Component 대신 사용]<br/>
 
-Spring Annotation 복습<br/>
+- Spring Annotation 복습<br/>
 -@Configuration은 클래스가 @Bean 메서드를 하나 이상 선언함을 나타낸다. Spring 컨테이너에서 처리하여 Bean 정의를 생성한다.<br/>
 -@ComponentScan은 컴포넌트를 스캔할 특정 패키지를 정의한다.<br/>
 -@Component는 어노테이션한 클래스가 컴포넌트임을 나타내준다.<br/>
@@ -191,13 +191,13 @@ JDBC와 Spring JDBC의 차이는 Spring JDBC로는 Java 코드를 훨씬 더 적
 
 8/18<br/>
 
-Spring Data JPA<br/>
+- Spring Data JPA<br/>
 
 JPA를 더 쉽게 만들어준다.<br/>
 EntityManager도 신경 쓸 필요가 없게 만들어준다.<br/>
 
 
-Hibernate vs JPA<br/>
+- Hibernate vs JPA<br/>
 
 JPA는 기술 명세를 정의한다. 그것은 API이다.<br/>
 엔티티가 무엇인지 정의하는 방식을 정의한다.<br/>
@@ -206,14 +206,14 @@ JPA를 이용하면 엔티티 정의, 속성 매핑 그리고 EntityManager를 �
 Hibernate는 JPA에서 매우 인기 있는 구현체이다. 코드에서 Hibernate 어노테이션을 직접 사용하지 않는 이유는 Hibernate로만 한정해서 쓰고 싶지 않기 때문이다.<br/>
 
 
-Spring MVC Controller<br/>
+- Spring MVC Controller<br/>
 
 @Controller은 주로 사용자의 요청을 처리하고 난 후 정해진 뷰 객체를 넘겨주는 역할을 합니다.<br/>
 
 @ResponseBody는 자바 객체를 json 기반의 HTTP Body로 변환, 서버 -> 클라이언트 응답<br/>
 
 
-Dispatcher Servlet<br/>
+- Dispatcher Servlet<br/>
 
 A: HTTP 요청을 받는다.<br/>
 
@@ -224,3 +224,14 @@ B3: 렌더링할 적절한 뷰를 식별해야 한다. 그럼 dispatcher servlet
 B4: 그리고 뷰를 렌더링하게 된다.<br/>
 
 C: 그 다음 HTTP 응답을 리턴함.<br/>
+
+
+8/20
+
+- Session vs Request Scopes<br/>
+
+브라우저에서 오는 모든 요청은 서버에 배포된 우리의 웹 애플리케이션에 의해 처리된다.<br/>
+
+Request Scope: 오직 하나의 요청에만 적용된다. 요청이 다시 전송되면 요청 속성은 메모리에서 삭제될 것이다. 그러므로 그 이후에 이루어지는 요청에는 사용할 수 없다.<br/>
+
+Session Scope: 세부정보가 다수의 요청에 걸쳐 저장된다. 그러므로 세션에 저장할 때는 유의해야 한다. 그 이유는 추가로 메모리를 차지하고 모든 세부정보가 서버에 저장되기 때문이다.<br/>
