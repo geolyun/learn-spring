@@ -1,10 +1,12 @@
 package com.CutyTeddyBear.springboot.myfirstwebapp.todo;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 public class TodoService {
@@ -27,6 +29,24 @@ public class TodoService {
 
     public void addTodo(String username, String description, LocalDate targetDate, boolean done) {
         Todo todo = new Todo(++todosCount, username, description, targetDate, done);
+        todos.add(todo);
+    }
+
+    public void deleteById(int id) {
+        // todo -> todo.getId() == id
+        Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+        todos.removeIf(predicate);
+    }
+
+    public Todo findById(int id) {
+        // predicate interface는 T에대한 조건에 대해서 true / false를 반환하는 Functional Interface입니다.
+        Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+        Todo todo = todos.stream().filter(predicate).findFirst().get();
+        return todo;
+    }
+
+    public void updateTodo(@Valid Todo todo) {
+        deleteById(todo.getId());
         todos.add(todo);
     }
 }
