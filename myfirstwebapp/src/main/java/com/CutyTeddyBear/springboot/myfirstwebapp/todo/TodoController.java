@@ -1,6 +1,8 @@
 package com.CutyTeddyBear.springboot.myfirstwebapp.todo;
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -25,6 +27,7 @@ public class TodoController {
     // /list-todos
     @RequestMapping("list-todos")
     public String listAllTodos(ModelMap model) {
+        String username = getLoggedInUsername(model);
         List<Todo> todos = todoService.findByUsername("geolyun");
         model.addAttribute("todos", todos);
 
@@ -34,7 +37,7 @@ public class TodoController {
     //GET, POST
     @RequestMapping(value = "add-todo", method = RequestMethod.GET)
     public String showNewTodopage(ModelMap model) {
-        String username = (String) model.get("name");
+        String username = getLoggedInUsername(model);
         Todo todo = new Todo(0, username, "", LocalDate.now().plusYears(1), false);
         model.put("todo", todo);
         return "todo";
@@ -47,7 +50,7 @@ public class TodoController {
             return "todo";
         }
 
-        String username = (String) model.get("name");
+        String username = getLoggedInUsername(model);
         todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), false);
         return "redirect:list-todos";
     }
@@ -73,10 +76,17 @@ public class TodoController {
             return "todo";
         }
 
-        String username = (String) model.get("name");
+        String username = getLoggedInUsername(model);
 
         todoService.updateTodo(todo);
         return "redirect:list-todos";
+    }
+
+    private static String getLoggedInUsername(ModelMap model) {
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+
+        return authentication.getName();
     }
 }
 
