@@ -1,5 +1,7 @@
 package com.CutyTeddyBear.springboot.myfirstwebapp.security;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -52,9 +54,16 @@ public class SpringSecurityConfiguration {
 
     @Bean
     // SecurityFilterChain: Defines a filter chain matched against every request
-    public SecurityFilterChain filterChain(HttpSecurity http) {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 auth -> auth.anyRequest().authenticated());
+        // default 값을 지정하기 위해선 withDefaults를 사용해야 한다.
+        // 우리가 SecurityFilterChain을 오버라이드하고 있기 때문에 우린 그걸 다시 정의해줘야 한다.
+        http.formLogin(withDefaults());
+
+        // csrf와 headers 그리고 frameOptions는 더 이상 사용되지 않으며 제거용으로 표시되어 있다.
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
 
         return http.build();
     }

@@ -1,5 +1,8 @@
 package com.CutyTeddyBear.springboot.myfirstwebapp.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
@@ -7,7 +10,16 @@ import java.time.LocalDate;
 // Database (MySQL)
 // Static List of todos => Database (H2, MySQL)
 
+//JPA
+// Bean -> Database Table
+
+@Entity
 public class Todo {
+    // 우리는 이 Todo Bean을 데이터베이스의 테이블에 매핑하고 있다.
+
+    public Todo() {
+
+    }
 
     public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
         this.id = id;
@@ -17,6 +29,8 @@ public class Todo {
         this.done = done;
     }
 
+    @Id
+    @GeneratedValue
     private int id;
     private String username;
 
