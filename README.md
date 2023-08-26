@@ -286,4 +286,5 @@ PUT : 기존 리소스를 업데이트할 때<br/>
 PATCH : 리소스의 일부분을 업데이트할 때<br/>
 DELETE : 리소스를 제거할 때<br/><br/>
 
-(static 블록 초기화에 관한 링크 : https://hibiskim.tistory.com/9)
+(static 블록 초기화에 관한 링크 : https://hibiskim.tistory.com/9)<br/>
+(RestController vs Controller 설명 : https://backendcode.tistory.com/213)
