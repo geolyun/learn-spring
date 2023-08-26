@@ -254,4 +254,34 @@ Session Scope: 세부정보가 다수의 요청에 걸쳐 저장된다. 그러�
 JPA와 Spring Data JPA 프레임워크를 초기화해준다.<br/>
 인메모리 데이터베이스인 H2도 시작시켜준다.<br/>
 애플리케이션 대 데이터베이스 연결이 설정된다.<br/>
-스크립트를 실행하려 한다면 그걸 설정하고 실행할 수 있게 해준다. <br/>
+스크립트를 실행하려 한다면 그걸 설정하고 실행할 수 있게 해준다.<br/>
+
+
+8/26<br/><br/>
+
+- 백엔드에서 일어나는 일<br/>
+
+1. 요청은 어떻게 처리될까?<br/>
+요청은 가장 먼저 디스패처 서블릿으로 간다. 사용하는 URL과 상관없이 Spring MVC에서 모든 요청은 디스패처 서블릿이 처리하게 된다. 이걸 프런트 컨트롤러 패턴이라고 한다.<br/>
+그리고 그 디스패처 서블릿은 자동 설정이라는 것에 의해 설정된다.<br/><br/>
+
+2. 어떻게 객체가 JSON으로 변환되는가?<br/>
+여기에는 @ResponseBody와 JacksonHttpMessageConverters 설정이 중요하다.<br/> 
+@RestController안에 @ResponseBody 어노테이션이 포함되어 있는데 Bean을 있는 그래도 반환하라고 말하는 것과 같다.<br/>
+Spring Boot 자동 설정이 설정한 기본 변환은 JacksonHttpMessageConverters를 사용한다. 이것 역시 자동 설정의 결과이다.<br/><br/>
+
+3. 오류 매핑은 어디에서 설정하는가?<br/>
+오류 페이지 역시 자동 설정의 결과이다. ErrorMvcAutoConfiguration<br/><br/>
+
+4. 어떻게 이 모든 jar를 사용할 수 있을까?<br/>
+Starter Projects - Spring Boot Starter Web 덕분이다.<br/><br/>
+
+
+
+- REST API를 위한 요청 메서드<br/>
+
+GET : 상세 정보를 검색할 때<br/>
+POST : 새 리소스를 생성할 때<br/>
+PUT : 기존 리소스를 업데이트할 때<br/>
+PATCH : 리소스의 일부분을 업데이트할 때<br/>
+DELETE : 리소스를 제거할 때<br/>
