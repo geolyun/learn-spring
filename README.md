@@ -287,4 +287,17 @@ PATCH : 리소스의 일부분을 업데이트할 때<br/>
 DELETE : 리소스를 제거할 때<br/><br/>
 
 (static 블록 초기화에 관한 링크 : https://hibiskim.tistory.com/9)<br/>
-(RestController vs Controller 설명 : https://backendcode.tistory.com/213)
+(RestController vs Controller 설명 : https://backendcode.tistory.com/213)<br/>
+
+
+8/28<br/><br/>
+
+- REST API 응답 상태<br/>
+
+404: 리소스를 찾지 못했을 때<br/>
+500: 서버에서 예외 발생<br/>
+400: 검증 에러<br/>
+200: 성공<br/>
+201: POST 요청으로 새 리소스를 생성했을 때<br/>
+204: 콘텐츠가 없음<br/>
+401: Unauthorized<br/>
