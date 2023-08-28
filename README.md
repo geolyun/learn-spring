@@ -300,4 +300,19 @@ DELETE : 리소스를 제거할 때<br/><br/>
 200: 성공<br/>
 201: POST 요청으로 새 리소스를 생성했을 때<br/>
 204: 콘텐츠가 없음<br/>
-401: Unauthorized<br/>
+401: Unauthorized<br/><br/>
+
+8/29<br/><br/>
+
+- Swagger and Open API<br/>
+
+Swagger는 REST API를 설계, 빌드, 문서화 및 사용하는 데 도움이되는 OpenAPI 사양을 중심으로 구축 된 오픈 소스 도구 세트이다.<br/>
+
+OpenAPI Specification는 RESTful API를 정의된 규칙에 맞게 API spec을 json이나 yaml로 표현하는 방식을 의미한다.<br/>
+
+2개의 차이는 Swagger는 API들이 갖고 있는 specification을 정의할 수 있는 툴들 중 하나라는 것이다.<br/><br/>
+
+
+springdoc-openapi라는 자바 라이브러리를 사용하여 스프링 부트 프로젝트의 API 문서 생성을 자동화할 수 있다는 사실을 확인할 수 있다.<br/>
+springdoc-openapi는 API 의미를 추론하기 위해 런타임에 애플리케이션을 검사하여 작동하며 이는 스프링 설정, 클래스 구조를 비롯하여 REST API에서 사용하는 다양한 어노테이션을 기반으로 한다.<br/>
+(Springdoc 라이브러리를 통한 Swagger 적용 : https://colabear754.tistory.com/99)<br/><br/>
