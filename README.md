@@ -16,7 +16,7 @@ Spring 컨테이너 = Spring Context = IOC Context : Spring Bean과 수명 주�
 
 IOC Container에는 두 가지가 있다.<br/>
 1. Bean Factory - 이는 기본적인 Spring Container<br/>
-2. Application Context - 엔터프라이즈 전용 기능이 있는 고급 Spring Container<br/>
+2. Application Context - 엔터프라이즈 전용 기능이 있는 고급 Spring Container<br/><br/>
 
 
 8/6
@@ -28,7 +28,7 @@ Java Bean은 3가지 제약을 준수하는 클래스(public 기본 생성자, n
 
 POJO 클래스는 아무 제약이 없으며, 모든 Java 객체는 POJO<br/>
 
-Spring Bean은 Spring이 관리하는 모든 Java 객체<br/>
+Spring Bean은 Spring이 관리하는 모든 Java 객체<br/><br/>
 
 
 8/7
@@ -54,7 +54,7 @@ Setter나 생성자가 없다면 reflection을 이용하여 주입하는 데 이
 Component Scan : @ComponentScan은 해당 애너테이션이 작성된 패키지 이하의 클래스들을 순회하며 빈으로 등록될 객체들을 탐색한다.<br/>
 의존성 주입 : Bean과 의존성을 식별하고 모두 와이어링하는 작업<br/>
 Spring Beans : Spring 프레임워크가 관리하는 모든 객체<br/>
-IOC container : Bean의 생명 주기와 의존성을 관리하는 Spring 프레임워크의 컴포넌트<br/>
+IOC container : Bean의 생명 주기와 의존성을 관리하는 Spring 프레임워크의 컴포넌트<br/><br/>
 
 
 8/9
@@ -99,7 +99,7 @@ Spring Bean 스코프에는 싱글톤, 프로토타입 두 가지가 있다.<br/
 @PreDestroy란?
 
 
-컨테이너에서 객체를 제거하기 전에 수행해야 하는 callback 메소드에 사용하는 어노테이션
+컨테이너에서 객체를 제거하기 전에 수행해야 하는 callback 메소드에 사용하는 어노테이션<br/><br/>
 
 
 8/10
@@ -107,7 +107,7 @@ Spring Bean 스코프에는 싱글톤, 프로토타입 두 가지가 있다.<br/
 
 - Jakarta CDI<br/>
 CDI는 규격이고 인터페이스이다.<br/>
-CDI의 중요한 어노테이션에는 Inject(Autowired in Spring), Named(Component in Spring), Qualifier, Scope, Singleton이 있다.<br/>
+CDI의 중요한 어노테이션에는 Inject(Autowired in Spring), Named(Component in Spring), Qualifier, Scope, Singleton이 있다.<br/><br/>
 
 
 8/12
@@ -139,7 +139,7 @@ CDI의 중요한 어노테이션에는 Inject(Autowired in Spring), Named(Compon
 1. Spring에서는 느슨한 결합이 가능하다. Spring은 Bean 생성과 Bean의 의존성 연결을 관리한다. 느슨하게 결합하여 유지보수가 가능한 애플리케이션을 아주 쉽게 만들 수 있다는 말이다.<br/>
 2. Boilerplate 코드를 줄여준다. Spring을 이용하면 비즈니스 논리에 집중할 수 있다.<br/>
 3. 아키텍쳐 유연성. 사용할 모듈과 프로젝트를 고르고 선택할 수 있다.<br/> 
-4. 시간에 따라 점차 발전한다.<br/>
+4. 시간에 따라 점차 발전한다.<br/><br/>
 
 
 8/14
@@ -170,7 +170,7 @@ Exploring Spring Boot Starter Projects<br/>
 
 Exploring Spring Boot Auto Configuration<br/>
 일반적으로 Spring Boot를 사용하여 웹 애플리케이션을 빌드할 때면 많은 설정이 필요하다.<br/> 
-이러한 작업을 간소화하기 위해서 애플리케이션용 자동화 설정인 Auto Configuration을 쓰면 된다.<br/>
+이러한 작업을 간소화하기 위해서 애플리케이션용 자동화 설정인 Auto Configuration을 쓰면 된다.<br/><br/>
 
 
 8/15
@@ -180,13 +180,13 @@ Spring Framework : 의존성 주입이 전부이다. 의존성을 정의하고 �
 
 Spring MVC는 Spring Module이다. 핵심은 웹 애플리케이션과 REST API의 빌드 과정을 간소화하는 것입니다. Spring MVC는 웹 애플리케이션을 쉽게 빌드하도록 지원한다.<br/>
 
-Spring Boot는 Spring Project이다. 목표는 프로덕션 환경에 사용 가능한 애플리케이션을 빠르게 빌드하도록 지원하는 것.<br/>
+Spring Boot는 Spring Project이다. 목표는 프로덕션 환경에 사용 가능한 애플리케이션을 빠르게 빌드하도록 지원하는 것.<br/><br/>
 
 
 8/16
 
 
-JDBC와 Spring JDBC의 차이는 Spring JDBC로는 Java 코드를 훨씬 더 적게 써야한다.
+JDBC와 Spring JDBC의 차이는 Spring JDBC로는 Java 코드를 훨씬 더 적게 써야한다.<br/><br/>
 
 
 8/18<br/>
@@ -223,7 +223,7 @@ B2: 적절한 컨트롤러 메서드를 식별했으면 그 컨트롤러 메서�
 B3: 렌더링할 적절한 뷰를 식별해야 한다. 그럼 dispatcher servlet은 view resolver과 대화하고 정확한 뷰 이름을 받게 된다.<br/>
 B4: 그리고 뷰를 렌더링하게 된다.<br/>
 
-C: 그 다음 HTTP 응답을 리턴함.<br/>
+C: 그 다음 HTTP 응답을 리턴함.<br/><br/>
 
 
 8/20
@@ -244,7 +244,7 @@ Session Scope: 세부정보가 다수의 요청에 걸쳐 저장된다. 그러�
 1. 검증과 관련된 starter 프로젝트를 임포트하는 것<br/>
 2. Command Bean 또는 Form Backing Object라는 개념을 사용하는 것 -> 이것을 하면 양방향 바인딩이라는 개념을 구현 가능<br/>
 3. Bean에 검증을 추가하는 단계<br/>
-4. 검증 오류를 뷰에 표시하는 단계<br/>
+4. 검증 오류를 뷰에 표시하는 단계<br/><br/>
 
 
 8/25<br/>
@@ -254,7 +254,7 @@ Session Scope: 세부정보가 다수의 요청에 걸쳐 저장된다. 그러�
 JPA와 Spring Data JPA 프레임워크를 초기화해준다.<br/>
 인메모리 데이터베이스인 H2도 시작시켜준다.<br/>
 애플리케이션 대 데이터베이스 연결이 설정된다.<br/>
-스크립트를 실행하려 한다면 그걸 설정하고 실행할 수 있게 해준다.<br/>
+스크립트를 실행하려 한다면 그걸 설정하고 실행할 수 있게 해준다.<br/><br/>
 
 
 8/26<br/><br/>
@@ -287,7 +287,7 @@ PATCH : 리소스의 일부분을 업데이트할 때<br/>
 DELETE : 리소스를 제거할 때<br/><br/>
 
 (static 블록 초기화에 관한 링크 : https://hibiskim.tistory.com/9)<br/>
-(RestController vs Controller 설명 : https://backendcode.tistory.com/213)<br/>
+(RestController vs Controller 설명 : https://backendcode.tistory.com/213)<br/><br/>
 
 
 8/28<br/><br/>
