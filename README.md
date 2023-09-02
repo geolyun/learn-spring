@@ -316,3 +316,68 @@ OpenAPI Specification는 RESTful API를 정의된 규칙에 맞게 API spec을 j
 springdoc-openapi라는 자바 라이브러리를 사용하여 스프링 부트 프로젝트의 API 문서 생성을 자동화할 수 있다는 사실을 확인할 수 있다.<br/>
 springdoc-openapi는 API 의미를 추론하기 위해 런타임에 애플리케이션을 검사하여 작동하며 이는 스프링 설정, 클래스 구조를 비롯하여 REST API에서 사용하는 다양한 어노테이션을 기반으로 한다.<br/>
 (Springdoc 라이브러리를 통한 Swagger 적용 : https://colabear754.tistory.com/99)<br/><br/>
+
+
+8/31<br/><br/>
+
+- Content Negotiaion(콘텐츠 협상)<br/>
+
+소비자는 REST API 제공자에게 원하는 표현을 어떻게 알릴 수 있을까?<br/><br/> 
+
+> 바로 콘텐츠 협상이다. 소비자는 Accept 헤더와 같은 것을 사용할 수 있다.<br/>
+요청을 전송할 때 MIME 유형의 application/xml로 요청을 전송할 수 있다.<br/>
+
+콘텐츠 협상에서는 소비자와 서비스 제공자가 서로 협상을 한다. 소비자는 콘텐츠 제공자에게 원하는 표현을 알려준다(XML 또는 JSON 응답을 원한다거나, 다른 나라 언어로 텍스트를 원한다고 요청할 수 있다).<br/><br/>
+
+
+- Internationalization(국제화)<br/>
+
+하나의 REST API에는 전 세계의 소비자가 있을 수 있다. 다른 언어를 사용자는 전 세계의 사용자들에게 REST API를 사용자 정의하려면 어떻게 해야 할까?<br/><br/>
+
+이때 사용하는 것이 국제화 - i18n이다.<br/>
+국제화를 처리할 때마다 HTTP Request 헤더를 사용하는데 요청의 일부로 Accept-Language라는 헤더를 전송한다.<br/><br/>
+
+
+- REST API 버전 관리<br/><br/>
+
+URL을 기반으로 버전 관리<br/>
+요청 매개변수를 이용한 버전 관리<br/>
+Request 헤더를 사용하는 옵션<br/>
+Media 또는 MIME 유형을 기반으로 버전 관리<br/><br/>
+
+-버전 관리의 방법을 결정할 때 고려해야 할 사항<br/><br/>
+
+첫번째 요인은 URI Pollution <br/>
+URI 버전 관리와 요청 매개변수 버전 관리는 새 버전을 나타내기 위해 URL을 생성 -> URI Pollution 많이 발생 <br/>
+헤더와 미디어 유형은 동일한 URL를 사용한다. -> URI Pollution의 양이 적음<br/><br/>
+
+다른 요인은 HTTP 헤더의 오용<br/> 
+HTTP 헤더는 버전 관리 용도로 사용해서는 안됨. 따라서 헤더와 미디어 유형은 HTTP 헤더를 오용하고 있음.<br/><br/>
+
+세번째 요인은 캐싱<br/>
+캐싱은 일반적으로 URL을 기반으로 수행되는데, 헤더 버전과 미디어 유형 버전의 경우 다른 버전을 사용한다. 헤더 버전과 미디어 유형 버전에서는 URL을 기반으로 캐싱을 할 수 없기 때문에 캐싱을 수행하기 전에 헤더를 살펴봐야 함. <br/><br/>
+
+그 외에도 브라우저에서 실행할 수 있는가, API 문서 등의 요인들도 존재한다.<br/><br/>
+
+
+- Hateoas(Hypermedia As The Engine Of Application State)<br/><br/>
+
+REST API를 사용하는 클라이언트가 전적으로 서버와 동적인 상호작용이 가능하도록 하는 것<br/>
+
+
+응답의 필드 이름을 커스터마이징하는 방법 : @JSONProperty<br/><br/>
+
+
+9/2<br/><br/>
+
+Spring Boot Actuator<br/><br/>
+
+Spring Boot에 운영 가능한 수준의 기능들을 제공한다.<br/>
+운영 환경에서 애플리케이션을 모니터링하고 관리하게 해준다.<br/><br/>
+
+
+HAL (JSON Hypertext Application Language)<br/>
+일관되고 쉽게 API 리소스 간 하이퍼링크를 제공하는 간단한 포맷이다.<br/><br/>
+
+HAL Explorer<br/>
+HAL을 이용하는 RESTful 하이퍼미디어 API를 탐색하는 API 탐색기<br/><br/>
