@@ -67,3 +67,6 @@ public class UserResource {
     }
 
 }
+
+
+// UserDaoService를 이용해서 그 안에 있는 데이터와 만들어진 함수를 사용한 코드
