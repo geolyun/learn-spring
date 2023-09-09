@@ -381,3 +381,16 @@ HAL (JSON Hypertext Application Language)<br/>
 
 HAL Explorer<br/>
 HAL을 이용하는 RESTful 하이퍼미디어 API를 탐색하는 API 탐색기<br/><br/>
+
+(Hateoas : https://joomn11.tistory.com/26
+ServletUriComponentBuilder : https://velog.io/@modsiw/Spring-Boot-ServletUriComponentBuilder
+getClass 구글검색)<br/><br/>
+
+
+9/9<br/><br/>
+
+
+리액트 State : 컴포넌트 내에서 지속적으로 변경이 일어나는 값을 관리하기 위해 사용<br/>
+State의 값을 변경하기 위해서는 반드시 setState 함수를 이용<br/><br/>
+
+리액트 Props(properties) : 상위 컴포넌트가 하위 컴포넌트에 값을 전달할 때 사용하는 속성(수정할 수 없다는 특징이 있다.<br/><br/>
