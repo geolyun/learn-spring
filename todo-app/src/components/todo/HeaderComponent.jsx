@@ -36,7 +36,7 @@ function HeaderComponent() {
             <div className="container">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg">
-                        <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="https://www.naver.com">Naver</a>
+                        <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="https://github.com/geolyun">CutyTeddyBear</a>
                         <div className="collapse navbar-collapse">
                             <ul className="navbar-nav">
                                 <li className="nav-item fs-5">
