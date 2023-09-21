@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { deleteTodoApi, retrieveAllTodosForUsernameApi } from "./api/TodoApiService";
+import { useAuth } from "./security/AuthContext";
 
 function ListTodosComponent() {
 
     const today = new Date();
+
+    const authContext = useAuth()
+
+    const username = authContext.username
     
     const targetDate = new Date(today.getFullYear()+12, today.getMonth(), today.getDay())
 
@@ -11,11 +16,6 @@ function ListTodosComponent() {
 
     const [message, setMessage] = useState(null)
 
-    // const todos = [
-    //                 // {id: 1, description: 'Learn AWS', done: false, targetDate:targetDate},
-    //                 // {id: 2, description: 'Learn Full Stack Dev', done: false, targetDate:targetDate},
-    //                 // {id: 3, description: 'Learn Docker', done: false, targetDate:targetDate},
-    //             ]
 
     //useEffect - 리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 실행할 수 있도록 하는 Hook
 
@@ -23,7 +23,7 @@ function ListTodosComponent() {
 
     function refreshTodos() {
     
-        retrieveAllTodosForUsernameApi('geolyun')
+        retrieveAllTodosForUsernameApi(username)
         .then(response => { 
             setTodos(response.data)
         }
@@ -33,7 +33,7 @@ function ListTodosComponent() {
     }
 
     function deleteTodo(id) {
-        deleteTodoApi('geolyun', id)
+        deleteTodoApi(username, id)
         .then(
             () => {
                 setMessage(`Delete of todo with ${id} successful`)
